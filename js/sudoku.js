@@ -46,7 +46,7 @@ function Sudoku() {
   };
 
   Sudoku.prototype.sudokuSolverBacktracking = function(board) {
-    let point = [0,0]
+    let point = [0,0];
 
     if (!this.findEmptyPosition(board, point)) {
       return true;
@@ -71,6 +71,33 @@ function Sudoku() {
     }
     return false;
   };
+
+  Sudoku.prototype.sudokuPuzzleCreator = function() {
+    let newBoard = [];
+
+
+
+
+    for (i = 0; i < 9; i++) {
+      let numbers = [1,2,3,4,5,6,7,8,9];
+      let currentIndex = 9, temporaryValue, randomIndex;
+
+      while (0 !== currentIndex) {
+            randomIndex = Math.floor(Math.random() * currentIndex);
+            currentIndex -= 1;
+
+            temporaryValue = numbers[currentIndex];
+            numbers[currentIndex] = numbers[randomIndex];
+            numbers[randomIndex] = temporaryValue;
+          }
+
+      newBoard.push([]);
+      for(j = 0; j < 9; j++) {
+        newBoard[i].push([numbers[j]])
+      }
+    }
+
+  }
 
 // Sudoku.prototype.checkWin = function() {
 //   //ROW CHECKER

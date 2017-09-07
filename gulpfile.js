@@ -54,7 +54,7 @@ gulp.task("clean", function(){
 });
 
 gulp.task('jshint', function(){
-  return gulp.src(['js/*.js'])
+  return gulp.src(['js/*.js', 'spec/*.js'])
   .pipe(jshint())
   .pipe(jshint.reporter('default'));
 });
