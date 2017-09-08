@@ -1,0 +1,42 @@
+h1 {
+  text-align: center;
+}
+
+input {
+  width: 75px;
+  height: 75px;
+  font-size: 50px;
+  text-align: center;
+}
+
+input:focus {
+  outline:none;
+}
+
+td {
+  width:75px;
+  height:75px;
+  border:1px solid black;
+}
+
+table {
+  margin:auto;
+  margin-top: 25px;
+  text-align:center;
+}
+
+td:nth-child(3n) {
+  border-right: 4px solid black;
+}
+
+td:first-child {
+  border-left: 4px solid black;
+}
+
+tr:first-child {
+  border-top: 4px solid black;
+}
+
+tr:nth-child(3n) td{
+  border-bottom: 4px solid black;
+}
