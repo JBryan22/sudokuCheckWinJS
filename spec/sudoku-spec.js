@@ -1,19 +1,19 @@
 var Sudoku = require('./../js/sudoku.js').sudokuModule;
+let newSudoku = new Sudoku();
 
 describe('Sudoku', function(){
-  it('should solve a sudoku puzzle or return false if it is unsolvable', function(){
-    var newSudoku = new Sudoku();
-    var myBoard = [[8,2,0,1,5,4,0,9,0],[0,6,5,0,2,7,0,4,0],[0,4,1,0,0,0,7,0,2],
-                                [5,0,0,4,6,0,2,0,1],[4,0,2,0,1,0,6,0,9],[6,0,8,0,0,2,0,3,5],
-                                [0,0,6,0,3,0,0,1,0],[1,0,4,0,9,0,8,0,3],[0,3,0,8,0,1,0,6,0]];
-    newSudoku.sudokuSolverBacktracking(myBoard);
+  it('should create an array of arrays that is 9 in length and depth', function(){
 
-
-    expect(myBoard).toEqual([[8,2,7,1,5,4,3,9,6],[9,6,5,3,2,7,1,4,8],[3,4,1,6,8,9,7,5,2],
-                                [5,9,3,4,6,8,2,7,1],[4,7,2,5,1,3,6,8,9],[6,1,8,9,7,2,4,3,5],
-                                [7,8,6,2,3,5,9,1,4],[1,5,4,7,9,6,8,2,3],[2,3,9,8,4,1,5,6,7]]
-                              );
+    let newBoard = newSudoku.sudokuFirstLineCreator();
+    expect(newBoard.length).toEqual(9);
+    expect(newBoard[0].length).toEqual(9);
   });
+
+  it('should create a completed sudoku board based on random first line', function() {
+    let newBoard = newSudoku.sudokuFirstLineCreator();
+    newSudoku.sudokuSolverBacktracking(newBoard);
+
+  })
 });
 //
 //

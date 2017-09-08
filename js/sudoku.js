@@ -72,13 +72,9 @@ function Sudoku() {
     return false;
   };
 
-  Sudoku.prototype.sudokuPuzzleCreator = function() {
+  Sudoku.prototype.generateRandomCompleteBoard = function() {
     let newBoard = [];
 
-
-
-
-    for (i = 0; i < 9; i++) {
       let numbers = [1,2,3,4,5,6,7,8,9];
       let currentIndex = 9, temporaryValue, randomIndex;
 
@@ -93,10 +89,43 @@ function Sudoku() {
 
       newBoard.push([]);
       for(j = 0; j < 9; j++) {
-        newBoard[i].push([numbers[j]])
+        newBoard[0].push(numbers[j]);
+      }
+
+      for (i = 1; i < 9; i++) {
+        newBoard.push([0,0,0,0,0,0,0,0,0]);
+      }
+
+      let newSudoku = new Sudoku();
+      let firstLine = newBoard[0];
+      newSudoku.sudokuSolverBacktracking(newBoard);
+      if (!arraysEqual(firstLine, newBoard[0])) {
+        newSudoku.generateRandomCompleteBoard();
+      }
+
+    return newBoard;
+  }
+
+  Sudoku.prototype.removeRandomFromCompletedBoard = function(completeBoard) {
+    let point = [0, 0];
+    let counter = 0;
+    while (counter < 37) {
+      point[0] = Math.floor(Math.random() * 9);
+      point[1] = Math.floor(Math.random() * 9);
+      if (completeBoard[point[0]][point[1]] != 0) {
+        completeBoard[point[0]][point[1]] = 0;
+        counter++;
       }
     }
+  }
 
+  function arraysEqual(arr1, arr2) {
+    for(let k = 0; k < arr1.length; k++) {
+      if(arr1[k] !== arr2[k]) {
+        return false;
+      }
+    }
+    return true;
   }
 
 // Sudoku.prototype.checkWin = function() {
