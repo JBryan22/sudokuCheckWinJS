@@ -106,10 +106,10 @@ function Sudoku() {
     return newBoard;
   }
 
-  Sudoku.prototype.removeRandomFromCompletedBoard = function(completeBoard) {
+  Sudoku.prototype.removeRandomFromCompletedBoard = function(completeBoard, amount) {
     let point = [0, 0];
     let counter = 0;
-    while (counter < 37) {
+    while (counter < amount) {
       point[0] = Math.floor(Math.random() * 9);
       point[1] = Math.floor(Math.random() * 9);
       if (completeBoard[point[0]][point[1]] != 0) {

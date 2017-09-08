@@ -40,3 +40,7 @@ tr:first-child {
 tr:nth-child(3n) td{
   border-bottom: 4px solid black;
 }
+
+.invalid {
+  background-color: #e54040;
+}
