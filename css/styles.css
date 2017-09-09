@@ -44,3 +44,12 @@ tr:nth-child(3n) td{
 .invalid {
   background-color: #e54040;
 }
+
+.buttons {
+  text-align: center;
+  margin-top:15px;
+}
+
+.buttons button {
+  margin: 15px;
+}
