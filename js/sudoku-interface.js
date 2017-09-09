@@ -58,7 +58,6 @@ $(document).ready(function(){
     row = (Math.floor(cell / 9));
     col = cell % 9;
     if (!newSudoku.checkIfValidPosition(newBoard, row, col, $(this).val())) {
-      console.log('in here');
       $(this).addClass("invalid");
     } else {
       $(this).removeClass("invalid");
